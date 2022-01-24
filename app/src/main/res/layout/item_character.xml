@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:tools="http://schemas.android.com/tools"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <data>
+        <variable
+            name="character"
+            type="xyz.hannanshaikh.rickandmorty.data.model.CharacterItem" />
+
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:padding="8dp">
+
+        <ImageView
+            android:id="@+id/characterImage"
+            android:layout_width="100dp"
+            android:layout_height="100dp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toStartOf="@+id/characterName"
+            app:layout_constraintHorizontal_bias="0.5"
+            app:layout_constraintStart_toStartOf="parent"
+            android:layout_marginEnd="8dp"
+            app:imageUrl="@{character.image}"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <TextView
+            android:id="@+id/characterName"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:textSize="18sp"
+            android:textStyle="bold"
+            tools:text="Character Name"
+            android:textColor="@color/black"
+            android:text="@{character.name}"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.5"
+            app:layout_constraintStart_toEndOf="@+id/characterImage"
+            app:layout_constraintTop_toTopOf="@+id/characterImage" />
+
+        <TextView
+            android:id="@+id/characterSpecies"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:text="@{character.species}"
+            android:textSize="16sp"
+            app:layout_constraintEnd_toEndOf="@+id/characterName"
+            app:layout_constraintHorizontal_bias="0.0"
+            app:layout_constraintStart_toStartOf="@+id/characterName"
+            app:layout_constraintTop_toBottomOf="@+id/characterName"
+            tools:text="Species" />
+
+        <TextView
+            android:id="@+id/characterLocation"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:textColor="@android:color/darker_gray"
+            android:textSize="16sp"
+            android:text="@{character.location.name}"
+            android:textStyle="bold|italic"
+            app:layout_constraintEnd_toEndOf="@+id/characterSpecies"
+            app:layout_constraintStart_toStartOf="@+id/characterSpecies"
+            app:layout_constraintTop_toBottomOf="@+id/characterSpecies"
+            tools:text="Earth" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>
